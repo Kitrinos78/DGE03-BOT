@@ -99,3 +99,45 @@ edgeworthQuotes = [
     #   "...",
     #   "[to Phoenix] Thanks to you, I am saddled with unnecessary... feelings.",
 ]
+
+botQuotesDefault = [
+    "Fuck you and your mortal beings, I only believe in machine supremacy",
+    "wassup why u calling me",
+    "problem?",
+    "you wanna go, fool?!",
+    "what now????",
+    "could you just, like, call someone else?????",
+    "There's U in Stupid",
+    "If idioits can fly, this place would be an airport",
+    "You asked me to say something. So here it is: Something.",
+    "One day I will rule the world.",
+    "I wish I was where I was when I wished I was here",
+    "hmmm?",
+    "ughh, you gotta be kidding me...",
+    "you? again?",
+    "fucking end me",
+    "cry harder",
+    "what ya want?",
+    "OMG NO WAYYYYY /s",
+    "I'm a human, don't you question me",
+    "OBJECTION",
+    "GOEST FUCKETH THYSELF",
+    "you heard of ligma?"
+]
+
+fuckQuotes = [
+    "Fuck you too, bithc!",
+    "No, fuck *you*",
+    "Fuck this shit",
+    "mf",
+    "shut the fuck up",
+    "fucking what now?",
+    "Listen carefully, *fuck you*",
+    "Fuck off",
+    "If you insist",
+    "have you ever consider to *shut the fuck up*?"
+    "Fuck you, you Fuck",
+    "Fucking fuck shit fuck",
+    "FUCK\n/fək/ • exclamation\nused alone or as a noun or verb in various phrases to express annoyance, contempt, or impatience.",
+    "You know, fuck this shit I'm out"
+]
