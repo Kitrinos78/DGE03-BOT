@@ -95,7 +95,9 @@ async def on_message(message):
             await message.channel.send(timetable[3])
         if rn.strftime("%A") == "Friday":
             await message.channel.send(timetable[4])
-        if rn.strftime("%A") == "Saturday" or "Sunday":
+        if rn.strftime("%A") == "Saturday":
+            await message.channel.send("It's the weekend, get ready for next week!")
+        if rn.strftime("%A") == "Sunday":
             await message.channel.send("It's the weekend, get ready for next week!")
 
     if msg.startswith(':3 tt monday'):
