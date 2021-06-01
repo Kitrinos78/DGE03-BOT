@@ -70,8 +70,7 @@ async def on_message(message):
         """)
 
     if msg.startswith(':3 fuck me'):
-        userid = message.author.id
-        await message.channel.send('fuck you, %s' % userid)
+        await message.channel.send('fuck you, %s' % message.author.mention)
     elif msg.startswith(':3 fuck'):
         await message.channel.send(random.choice(fuckQuotes))
 
