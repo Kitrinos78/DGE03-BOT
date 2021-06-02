@@ -9,10 +9,13 @@ import discord
 import os
 import random
 import datetime
+from bs4 import BeautifulSoup
+import requests
+from wordSearch import show_origin, show_definitions
 
 # Import list of quotes
-from quoteList import *
-from utilList import *
+from quoteList import edgeworthQuotes, botQuotesDefault, fuckQuotes
+from utilList import timetable
 
 # Import pinging function
 from stayinAlive import keep_alive
@@ -73,6 +76,28 @@ async def on_message(message):
         await message.channel.send('fuck you, %s' % message.author.mention)
     elif msg.startswith(':3 fuck'):
         await message.channel.send(random.choice(fuckQuotes))
+
+    if msg.startswith(':3 define'):
+        searchWord = message.content
+        searchWord = searchWord[10:]
+
+        word_to_search = searchWord
+        scrape_url = 'https://www.oxfordlearnersdictionaries.com/definition/english/' + word_to_search
+
+        headers = {"User-Agent": ""}
+        web_response = requests.get(scrape_url, headers=headers)
+
+        if web_response.status_code == 200:
+            soup = BeautifulSoup(web_response.text, 'html.parser')
+
+            try:
+                await message.channel.send(searchWord.upper())
+                await message.channel.send(show_origin(soup)[11:])
+                await message.channel.send(show_definitions(soup))
+            except AttributeError:
+                await message.channel.send('Word not found!!')
+        else:
+            await message.channel.send('Failed to get response...')
 
 ###################################################################
 # TIMETABLE
