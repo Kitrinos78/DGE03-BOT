@@ -12,6 +12,7 @@ import datetime
 from bs4 import BeautifulSoup
 import requests
 from wordSearch import show_origin, show_definitions
+from urbanSearch import urbanSearch
 
 # Import list of quotes
 from quoteList import edgeworthQuotes, botQuotesDefault, fuckQuotes
@@ -77,6 +78,10 @@ async def on_message(message):
     elif msg.startswith(':3 fuck'):
         await message.channel.send(random.choice(fuckQuotes))
 
+###################################################################
+# Dictionaries & Definitions
+###################################################################
+
     if msg.startswith(':3 define'):
         searchWord = message.content
         searchWord = searchWord[10:]
@@ -98,6 +103,28 @@ async def on_message(message):
                 await message.channel.send('Word not found!!')
         else:
             await message.channel.send('Failed to get response...')
+
+    if msg.startswith(':3 urban'):
+        searchUrbanWord = message.content
+        searchUrbanWord = searchUrbanWord[9:]
+
+        word_to_search = searchUrbanWord
+        scrape_url = 'http://www.urbandictionary.com/define.php?term=' + word_to_search
+
+        headers = {"User-Agent": ""}
+        web_response = requests.get(scrape_url, headers=headers)
+
+        if web_response.status_code == 200:
+            soup = BeautifulSoup(web_response.text, 'html.parser')
+
+            try:
+                await message.channel.send(searchUrbanWord.upper())
+                await message.channel.send(urbanSearch(soup))
+            except AttributeError:
+                await message.channel.send('Word not found!!')
+        else:
+            await message.channel.send('Failed to get response...')
+
 
 ###################################################################
 # TIMETABLE
