@@ -12,7 +12,7 @@ import datetime
 from bs4 import BeautifulSoup
 import requests
 from wordSearch import show_origin, show_definitions
-from urbanSearch import urbanSearch
+from urbanSearch import urbanSearch, urbanExample
 
 # Import list of quotes
 from quoteList import edgeworthQuotes, botQuotesDefault, fuckQuotes
@@ -137,6 +137,7 @@ async def on_message(message):
             try:
                 await message.channel.send(searchUrbanWord.upper())
                 await message.channel.send(urbanSearch(soup))
+                await message.channel.send("Example:\n" + urbanExample(soup))
             except AttributeError:
                 await message.channel.send('Word not found!!')
         else:
