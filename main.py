@@ -86,9 +86,12 @@ async def on_message(message):
         > I am created to be a bot for my creator's friend group, I can do a lot of things (not really, but...still), I can say words your parent said you can't, I can tell you your timetable, I can look up definitions and other fun stuff!
         > So, just call me when you need me or whatevs ;)
         > Oh right, here's my repo, it's me in my code form:
-        > https://github.com/Kitrinos78/DGE03-BOT
+        > [https://github.com/Kitrinos78/DGE03-BOT]
         > gotta warn you pal, my code's a fucking mess
         """)
+
+    if msg.startswith('whos joe'):
+        await message.channel.send('JOE MAMA hahahhahahahahhahahah')
 
     if msg.startswith(':3 fuck me'):
         await message.channel.send('fuck you, %s' % message.author.mention)
@@ -113,9 +116,7 @@ async def on_message(message):
             soup = BeautifulSoup(web_response.text, 'html.parser')
 
             try:
-                await message.channel.send(searchWord.upper())
-                await message.channel.send(show_origin(soup)[11:])
-                await message.channel.send(show_definitions(soup))
+                await message.channel.send("**" + searchWord.upper() + "**\n" + show_origin(soup)[11:] + "\n" + show_definitions(soup))
             except AttributeError:
                 await message.channel.send('Word not found!!')
         else:
@@ -135,9 +136,7 @@ async def on_message(message):
             soup = BeautifulSoup(web_response.text, 'html.parser')
 
             try:
-                await message.channel.send(searchUrbanWord.upper())
-                await message.channel.send(urbanSearch(soup))
-                await message.channel.send("Example:\n" + urbanExample(soup))
+                await message.channel.send("**" + searchUrbanWord.upper() + "**\n" + urbanSearch(soup) + "\n*Example:*\n" + urbanExample(soup))
             except AttributeError:
                 await message.channel.send('Word not found!!')
         else:
