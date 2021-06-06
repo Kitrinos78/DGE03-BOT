@@ -98,6 +98,12 @@ async def on_message(message):
     elif msg.startswith(':3 fuck'):
         await message.channel.send(random.choice(fuckQuotes))
 
+    if msg.startswith(''):
+        matches = ["recommend", "suggest"]
+        if any(x in message.content for x in matches):
+            await message.channel.send("Have you tried the expanded Free Trial of our critically acclaimed MMORPG FFXIV? You can play through the entirety of A Realm Reborn and the award-winning Heavensward expansion up to level 60 for FREE with no restrictions on playtime! http://freetrial.finalfantasyxiv.com")
+
+
 ###################################################################
 # Dictionaries & Definitions
 ###################################################################
